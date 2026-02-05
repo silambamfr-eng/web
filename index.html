@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silambam - Ancient Martial Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a0f0a;
+            --accent: #d4a574;
+            --accent-light: #e8c9a3;
+            --text: #2a1810;
+            --text-light: #6b5547;
+            --bg: #faf8f5;
+            --bg-secondary: #f0ebe4;
+            --border: rgba(212, 165, 116, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 20px rgba(26, 15, 10, 0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .lang-switcher button {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.8rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher button.active,
+        .lang-switcher button:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 15, 10, 0.7) 0%, rgba(212, 165, 116, 0.3) 100%),
+                        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(212,165,116,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .cta-button:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(26, 15, 10, 0.4);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(26, 15, 10, 0.15);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(212, 165, 116, 0.2), transparent);
+            z-index: 1;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            height: 600px;
+            margin: 4rem 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(26, 15, 10, 0.7), transparent);
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
+            z-index: 10;
+            color: white;
+        }
+
+        .carousel-caption h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 10;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .carousel-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 165, 116, 0.9);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Classes Section */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .class-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(26, 15, 10, 0.08);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(212, 165, 116, 0.2);
+        }
+
+        .class-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .class-time {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .class-price {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+        }
+
+        .price-note {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Instructors Section */
+        .instructors {
+            background: var(--bg-secondary);
+        }
+
+        .instructor-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(26, 15, 10, 0.08);
+        }
+
+        .instructor-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .instructor-title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .instructor-bio {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(26, 15, 10, 0.5));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            background: white;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            padding: 1.2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--accent-light);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .about-content,
+            .contact-grid,
+            .instructor-card {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-container {
+                height: 400px;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .loading {
+            background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--accent-light) 50%, var(--bg-secondary) 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">SILAMBAM</div>
+            <ul class="nav-menu">
+                <li><a href="#home" data-translate="nav_home">Accueil</a></li>
+                <li><a href="#about" data-translate="nav_about">À Propos</a></li>
+                <li><a href="#classes" data-translate="nav_classes">Cours</a></li>
+                <li><a href="#instructors" data-translate="nav_instructors">Instructeurs</a></li>
+                <li><a href="#gallery" data-translate="nav_gallery">Galerie</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="pt">PT</button>
+                <button class="lang-btn" data-lang="ta">த</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">SILAMBAM</h1>
+            <p class="hero-subtitle" data-translate="hero_subtitle">L'Art Martial Ancestral du Tamil Nadu</p>
+            <p class="hero-description" data-translate="hero_description">
+                Découvrez l'art ancien du combat au bâton, une tradition vieille de plus de 5000 ans. 
+                Le Silambam développe force, agilité et discipline à travers des mouvements fluides et puissants.
+            </p>
+            <a href="#classes" class="cta-button" data-translate="hero_cta">Commencer Votre Voyage</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title" data-translate="about_title">Notre Histoire</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 data-translate="about_history_title">Histoire du Silambam</h3>
+                <p data-translate="about_history_p1">
+                    Le Silambam est l'un des arts martiaux les plus anciens au monde, originaire du Tamil Nadu en Inde. 
+                    Cet art sacré remonte à plus de 5000 ans et est mentionné dans d'anciens textes tamouls.
+                </p>
+                <p data-translate="about_history_p2">
+                    Traditionnellement pratiqué avec un bâton de bambou, le Silambam enseigne non seulement la maîtrise 
+                    du combat, mais aussi la discipline mentale, la concentration et le respect des traditions ancestrales.
+                </p>
+                <h3 data-translate="about_philosophy_title">Philosophie</h3>
+                <p data-translate="about_philosophy_p1">
+                    Le Silambam incarne l'harmonie entre le corps et l'esprit. Chaque mouvement reflète l'équilibre, 
+                    la fluidité et la puissance. Nos enseignements mettent l'accent sur le respect, la persévérance 
+                    et le développement personnel.
+                </p>
+            </div>
+            <div class="about-image loading">
+                <!-- Placeholder for image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section>
+        <h2 class="section-title" data-translate="carousel_title">Silambam en Action</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide active" style="background: linear-gradient(135deg, #d4a574 0%, #1a0f0a 100%);">
+                    <div class="carousel-caption">
+                        <h3 data-translate="carousel_1_title">Techniques Traditionnelles</h3>
+                        <p data-translate="carousel_1_desc">Maîtrise du bâton ancestral</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #e8c9a3 0%, #6b5547 100%);">
+                    <div class="carousel-caption">
+                        <h3 data-translate="carousel_2_title">Entraînement Intensif</h3>
+                        <p data-translate="carousel_2_desc">Développez force et agilité</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #1a0f0a 0%, #d4a574 100%);">
+                    <div class="carousel-caption">
+                        <h3 data-translate="carousel_3_title">Démonstrations</h3>
+                        <p data-translate="carousel_3_desc">L'art en mouvement</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #6b5547 0%, #e8c9a3 100%);">
+                    <div class="carousel-caption">
+                        <h3 data-translate="carousel_4_title">Traditions Vivantes</h3>
+                        <p data-translate="carousel_4_desc">5000 ans d'histoire</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">‹</button>
+                <button class="carousel-btn" id="nextBtn">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="classes" id="classes">
+        <h2 class="section-title" data-translate="classes_title">Nos Cours</h2>
+        <div class="classes-grid">
+            <div class="class-card">
+                <h3 data-translate="class_beginner_title">Cours Débutant</h3>
+                <p class="class-time" data-translate="class_beginner_time">Samedi 14h - 15h</p>
+                <p data-translate="class_beginner_desc">
+                    Découvrez les fondamentaux du Silambam. Apprenez les positions de base, 
+                    les mouvements du bâton et les principes essentiels de cet art martial.
+                </p>
+            </div>
+            <div class="class-card">
+                <h3 data-translate="class_advanced_title">Cours Avancé</h3>
+                <p class="class-time" data-translate="class_advanced_time">Samedi 15h - 16h</p>
+                <p data-translate="class_advanced_desc">
+                    Perfectionnez vos techniques avec des enchaînements complexes, 
+                    des combats simulés et des katas traditionnels avancés.
+                </p>
+            </div>
+            <div class="class-card">
+                <h3 data-translate="class_private_title">Cours Particulier</h3>
+                <p class="class-time" data-translate="class_private_time">Dimanche - Sur rendez-vous</p>
+                <p data-translate="class_private_desc">
+                    Bénéficiez d'un enseignement personnalisé adapté à votre niveau et vos objectifs.
+                </p>
+                <p class="class-price">15€ / 1h</p>
+            </div>
+            <div class="class-card">
+                <h3 data-translate="class_kata_title">Kata Avancé Traditionnel</h3>
+                <p class="class-time" data-translate="class_kata_time">Dimanche - 8 leçons</p>
+                <p data-translate="class_kata_desc">
+                    Programme intensif de 8 séances pour maîtriser les katas traditionnels avancés du Silambam.
+                </p>
+                <p class="class-price">100€</p>
+            </div>
+        </div>
+        <div class="price-note">
+            <p data-translate="price_annual"><strong>Tarif Annuel:</strong> 167€ / an pour les cours réguliers</p>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="instructors" id="instructors">
+        <h2 class="section-title" data-translate="instructors_title">Nos Maîtres</h2>
+        <div class="instructor-card">
+            <div class="instructor-image loading"></div>
+            <div class="instructor-info">
+                <h3 data-translate="instructor_1_name">Maître Kumar Selvam</h3>
+                <p class="instructor-title" data-translate="instructor_1_title">Instructeur Principal - 25 ans d'expérience</p>
+                <p class="instructor-bio" data-translate="instructor_1_bio">
+                    Maître Kumar Selvam a commencé son apprentissage du Silambam à l'âge de 7 ans au Tamil Nadu. 
+                    Après 25 ans de pratique intensive, il a décidé de partager son savoir et de perpétuer cette tradition ancestrale. 
+                    Détenteur de plusieurs titres de champion national, il enseigne avec passion et dévouement.
+                </p>
+                <div class="testimonial">
+                    <p data-translate="instructor_1_testimonial">
+                        "Maître Kumar m'a appris bien plus que des techniques de combat. Il m'a transmis une philosophie de vie 
+                        basée sur le respect, la discipline et la persévérance." - Marie, élève depuis 3 ans
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title" data-translate="gallery_title">Galerie</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item loading"></div>
+            <div class="gallery-item loading"></div>
+            <div class="gallery-item loading"></div>
+            <div class="gallery-item loading"></div>
+            <div class="gallery-item loading"></div>
+            <div class="gallery-item loading"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title" data-translate="contact_title">Contactez-Nous</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4 data-translate="contact_address_title">Adresse</h4>
+                        <p data-translate="contact_address">123 Rue de la Tradition<br>67000 Strasbourg, France</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4 data-translate="contact_phone_title">Téléphone</h4>
+                        <p>+33 6 12 34 56 78</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h4 data-translate="contact_email_title">Email</h4>
+                        <p>contact@silambam-strasbourg.fr</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-text">
+                        <h4 data-translate="contact_hours_title">Horaires</h4>
+                        <p data-translate="contact_hours">Samedi: 14h - 16h<br>Dimanche: Sur rendez-vous</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name" data-translate="form_name">Nom</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-translate="form_email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-translate="form_message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="form_submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="YouTube">▶</a>
+            </div>
+            <div class="footer-links">
+                <a href="#" data-translate="footer_privacy">Politique de Confidentialité</a>
+                <a href="#" data-translate="footer_terms">Conditions d'Utilisation</a>
+            </div>
+            <p class="copyright" data-translate="footer_copyright">© 2026 Silambam Strasbourg. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            fr: {
+                nav_home: "Accueil",
+                nav_about: "À Propos",
+                nav_classes: "Cours",
+                nav_instructors: "Instructeurs",
+                nav_gallery: "Galerie",
+                nav_contact: "Contact",
+                hero_subtitle: "L'Art Martial Ancestral du Tamil Nadu",
+                hero_description: "Découvrez l'art ancien du combat au bâton, une tradition vieille de plus de 5000 ans. Le Silambam développe force, agilité et discipline à travers des mouvements fluides et puissants.",
+                hero_cta: "Commencer Votre Voyage",
+                about_title: "Notre Histoire",
+                about_history_title: "Histoire du Silambam",
+                about_history_p1: "Le Silambam est l'un des arts martiaux les plus anciens au monde, originaire du Tamil Nadu en Inde. Cet art sacré remonte à plus de 5000 ans et est mentionné dans d'anciens textes tamouls.",
+                about_history_p2: "Traditionnellement pratiqué avec un bâton de bambou, le Silambam enseigne non seulement la maîtrise du combat, mais aussi la discipline mentale, la concentration et le respect des traditions ancestrales.",
+                about_philosophy_title: "Philosophie",
+                about_philosophy_p1: "Le Silambam incarne l'harmonie entre le corps et l'esprit. Chaque mouvement reflète l'équilibre, la fluidité et la puissance. Nos enseignements mettent l'accent sur le respect, la persévérance et le développement personnel.",
+                carousel_title: "Silambam en Action",
+                carousel_1_title: "Techniques Traditionnelles",
+                carousel_1_desc: "Maîtrise du bâton ancestral",
+                carousel_2_title: "Entraînement Intensif",
+                carousel_2_desc: "Développez force et agilité",
+                carousel_3_title: "Démonstrations",
+                carousel_3_desc: "L'art en mouvement",
+                carousel_4_title: "Traditions Vivantes",
+                carousel_4_desc: "5000 ans d'histoire",
+                classes_title: "Nos Cours",
+                class_beginner_title: "Cours Débutant",
+                class_beginner_time: "Samedi 14h - 15h",
+                class_beginner_desc: "Découvrez les fondamentaux du Silambam. Apprenez les positions de base, les mouvements du bâton et les principes essentiels de cet art martial.",
+                class_advanced_title: "Cours Avancé",
+                class_advanced_time: "Samedi 15h - 16h",
+                class_advanced_desc: "Perfectionnez vos techniques avec des enchaînements complexes, des combats simulés et des katas traditionnels avancés.",
+                class_private_title: "Cours Particulier",
+                class_private_time: "Dimanche - Sur rendez-vous",
+                class_private_desc: "Bénéficiez d'un enseignement personnalisé adapté à votre niveau et vos objectifs.",
+                class_kata_title: "Kata Avancé Traditionnel",
+                class_kata_time: "Dimanche - 8 leçons",
+                class_kata_desc: "Programme intensif de 8 séances pour maîtriser les katas traditionnels avancés du Silambam.",
+                price_annual: "Tarif Annuel: 167€ / an pour les cours réguliers",
+                instructors_title: "Nos Maîtres",
+                instructor_1_name: "Maître Kumar Selvam",
+                instructor_1_title: "Instructeur Principal - 25 ans d'expérience",
+                instructor_1_bio: "Maître Kumar Selvam a commencé son apprentissage du Silambam à l'âge de 7 ans au Tamil Nadu. Après 25 ans de pratique intensive, il a décidé de partager son savoir et de perpétuer cette tradition ancestrale. Détenteur de plusieurs titres de champion national, il enseigne avec passion et dévouement.",
+                instructor_1_testimonial: "\"Maître Kumar m'a appris bien plus que des techniques de combat. Il m'a transmis une philosophie de vie basée sur le respect, la discipline et la persévérance.\" - Marie, élève depuis 3 ans",
+                gallery_title: "Galerie",
+                contact_title: "Contactez-Nous",
+                contact_address_title: "Adresse",
+                contact_address: "123 Rue de la Tradition<br>67000 Strasbourg, France",
+                contact_phone_title: "Téléphone",
+                contact_email_title: "Email",
+                contact_hours_title: "Horaires",
+                contact_hours: "Samedi: 14h - 16h<br>Dimanche: Sur rendez-vous",
+                form_name: "Nom",
+                form_email: "Email",
+                form_message: "Message",
+                form_submit: "Envoyer",
+                footer_privacy: "Politique de Confidentialité",
+                footer_terms: "Conditions d'Utilisation",
+                footer_copyright: "© 2026 Silambam Strasbourg. Tous droits réservés."
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_classes: "Classes",
+                nav_instructors: "Instructors",
+                nav_gallery: "Gallery",
+                nav_contact: "Contact",
+                hero_subtitle: "Ancient Martial Art from Tamil Nadu",
+                hero_description: "Discover the ancient art of staff combat, a tradition over 5000 years old. Silambam develops strength, agility and discipline through fluid and powerful movements.",
+                hero_cta: "Begin Your Journey",
+                about_title: "Our Story",
+                about_history_title: "History of Silambam",
+                about_history_p1: "Silambam is one of the oldest martial arts in the world, originating from Tamil Nadu in India. This sacred art dates back over 5000 years and is mentioned in ancient Tamil texts.",
+                about_history_p2: "Traditionally practiced with a bamboo staff, Silambam teaches not only combat mastery, but also mental discipline, concentration and respect for ancestral traditions.",
+                about_philosophy_title: "Philosophy",
+                about_philosophy_p1: "Silambam embodies the harmony between body and mind. Every movement reflects balance, fluidity and power. Our teachings emphasize respect, perseverance and personal development.",
+                carousel_title: "Silambam in Action",
+                carousel_1_title: "Traditional Techniques",
+                carousel_1_desc: "Mastery of the ancestral staff",
+                carousel_2_title: "Intensive Training",
+                carousel_2_desc: "Develop strength and agility",
+                carousel_3_title: "Demonstrations",
+                carousel_3_desc: "The art in motion",
+                carousel_4_title: "Living Traditions",
+                carousel_4_desc: "5000 years of history",
+                classes_title: "Our Classes",
+                class_beginner_title: "Beginner Class",
+                class_beginner_time: "Saturday 2pm - 3pm",
+                class_beginner_desc: "Discover the fundamentals of Silambam. Learn basic positions, staff movements and essential principles of this martial art.",
+                class_advanced_title: "Advanced Class",
+                class_advanced_time: "Saturday 3pm - 4pm",
+                class_advanced_desc: "Perfect your techniques with complex sequences, simulated combat and advanced traditional katas.",
+                class_private_title: "Private Lesson",
+                class_private_time: "Sunday - By appointment",
+                class_private_desc: "Benefit from personalized teaching adapted to your level and goals.",
+                class_kata_title: "Advanced Traditional Kata",
+                class_kata_time: "Sunday - 8 lessons",
+                class_kata_desc: "Intensive 8-session program to master advanced traditional Silambam katas.",
+                price_annual: "Annual Fee: €167 / year for regular classes",
+                instructors_title: "Our Masters",
+                instructor_1_name: "Master Kumar Selvam",
+                instructor_1_title: "Lead Instructor - 25 years of experience",
+                instructor_1_bio: "Master Kumar Selvam began his Silambam training at age 7 in Tamil Nadu. After 25 years of intensive practice, he decided to share his knowledge and perpetuate this ancestral tradition. Holder of several national championship titles, he teaches with passion and dedication.",
+                instructor_1_testimonial: "\"Master Kumar taught me much more than combat techniques. He transmitted to me a life philosophy based on respect, discipline and perseverance.\" - Marie, student for 3 years",
+                gallery_title: "Gallery",
+                contact_title: "Contact Us",
+                contact_address_title: "Address",
+                contact_address: "123 Tradition Street<br>67000 Strasbourg, France",
+                contact_phone_title: "Phone",
+                contact_email_title: "Email",
+                contact_hours_title: "Hours",
+                contact_hours: "Saturday: 2pm - 4pm<br>Sunday: By appointment",
+                form_name: "Name",
+                form_email: "Email",
+                form_message: "Message",
+                form_submit: "Send",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Use",
+                footer_copyright: "© 2026 Silambam Strasbourg. All rights reserved."
+            },
+            pt: {
+                nav_home: "Início",
+                nav_about: "Sobre",
+                nav_classes: "Aulas",
+                nav_instructors: "Instrutores",
+                nav_gallery: "Galeria",
+                nav_contact: "Contato",
+                hero_subtitle: "Arte Marcial Ancestral de Tamil Nadu",
+                hero_description: "Descubra a arte antiga do combate com bastão, uma tradição de mais de 5000 anos. O Silambam desenvolve força, agilidade e disciplina através de movimentos fluidos e poderosos.",
+                hero_cta: "Comece Sua Jornada",
+                about_title: "Nossa História",
+                about_history_title: "História do Silambam",
+                about_history_p1: "Silambam é uma das artes marciais mais antigas do mundo, originária de Tamil Nadu na Índia. Esta arte sagrada remonta a mais de 5000 anos e é mencionada em textos tâmeis antigos.",
+                about_history_p2: "Tradicionalmente praticado com um bastão de bambu, o Silambam ensina não apenas o domínio do combate, mas também disciplina mental, concentração e respeito pelas tradições ancestrais.",
+                about_philosophy_title: "Filosofia",
+                about_philosophy_p1: "O Silambam incorpora a harmonia entre corpo e mente. Cada movimento reflete equilíbrio, fluidez e poder. Nossos ensinamentos enfatizam respeito, perseverança e desenvolvimento pessoal.",
+                carousel_title: "Silambam em Ação",
+                carousel_1_title: "Técnicas Tradicionais",
+                carousel_1_desc: "Domínio do bastão ancestral",
+                carousel_2_title: "Treinamento Intensivo",
+                carousel_2_desc: "Desenvolva força e agilidade",
+                carousel_3_title: "Demonstrações",
+                carousel_3_desc: "A arte em movimento",
+                carousel_4_title: "Tradições Vivas",
+                carousel_4_desc: "5000 anos de história",
+                classes_title: "Nossas Aulas",
+                class_beginner_title: "Aula Iniciante",
+                class_beginner_time: "Sábado 14h - 15h",
+                class_beginner_desc: "Descubra os fundamentos do Silambam. Aprenda posições básicas, movimentos do bastão e princípios essenciais desta arte marcial.",
+                class_advanced_title: "Aula Avançada",
+                class_advanced_time: "Sábado 15h - 16h",
+                class_advanced_desc: "Aperfeiçoe suas técnicas com sequências complexas, combate simulado e katas tradicionais avançados.",
+                class_private_title: "Aula Particular",
+                class_private_time: "Domingo - Com hora marcada",
+                class_private_desc: "Beneficie-se de ensino personalizado adaptado ao seu nível e objetivos.",
+                class_kata_title: "Kata Tradicional Avançado",
+                class_kata_time: "Domingo - 8 lições",
+                class_kata_desc: "Programa intensivo de 8 sessões para dominar katas tradicionais avançados de Silambam.",
+                price_annual: "Taxa Anual: €167 / ano para aulas regulares",
+                instructors_title: "Nossos Mestres",
+                instructor_1_name: "Mestre Kumar Selvam",
+                instructor_1_title: "Instrutor Principal - 25 anos de experiência",
+                instructor_1_bio: "Mestre Kumar Selvam começou seu treinamento em Silambam aos 7 anos em Tamil Nadu. Após 25 anos de prática intensiva, decidiu compartilhar seu conhecimento e perpetuar esta tradição ancestral. Detentor de vários títulos de campeonato nacional, ensina com paixão e dedicação.",
+                instructor_1_testimonial: "\"Mestre Kumar me ensinou muito mais do que técnicas de combate. Ele transmitiu-me uma filosofia de vida baseada no respeito, disciplina e perseverança.\" - Marie, aluna há 3 anos",
+                gallery_title: "Galeria",
+                contact_title: "Contate-Nos",
+                contact_address_title: "Endereço",
+                contact_address: "123 Rua da Tradição<br>67000 Estrasburgo, França",
+                contact_phone_title: "Telefone",
+                contact_email_title: "Email",
+                contact_hours_title: "Horário",
+                contact_hours: "Sábado: 14h - 16h<br>Domingo: Com hora marcada",
+                form_name: "Nome",
+                form_email: "Email",
+                form_message: "Mensagem",
+                form_submit: "Enviar",
+                footer_privacy: "Política de Privacidade",
+                footer_terms: "Termos de Uso",
+                footer_copyright: "© 2026 Silambam Strasbourg. Todos os direitos reservados."
+            },
+            ta: {
+                nav_home: "முகப்பு",
+                nav_about: "எங்களை பற்றி",
+                nav_classes: "வகுப்புகள்",
+                nav_instructors: "பயிற்றுவிப்பாளர்கள்",
+                nav_gallery: "படத்தொகுப்பு",
+                nav_contact: "தொடர்பு",
+                hero_subtitle: "தமிழ்நாட்டின் பண்டைய தற்காப்புக் கலை",
+                hero_description: "5000 ஆண்டுகளுக்கும் மேலான வரலாற்றைக் கொண்ட பழமையான தடி சண்டைக் கலையைக் கண்டறியுங்கள். சிலம்பம் வலிமை, சுறுசுறுப்பு மற்றும் ஒழுக்கத்தை வளர்க்கிறது.",
+                hero_cta: "உங்கள் பயணத்தைத் தொடங்குங்கள்",
+                about_title: "எங்கள் வரலாறு",
+                about_history_title: "சிலம்பத்தின் வரலாறு",
+                about_history_p1: "சிலம்பம் உலகின் பழமையான தற்காப்புக் கலைகளில் ஒன்றாகும், இது இந்தியாவின் தமிழ்நாட்டில் உருவானது. இந்த புனிதமான கலை 5000 ஆண்டுகளுக்கும் மேலான வரலாற்றைக் கொண்டது மற்றும் பழைய தமிழ் நூல்களில் குறிப்பிடப்பட்டுள்ளது.",
+                about_history_p2: "பாரம்பரியமாக மூங்கில் தடியுடன் பயிற்சி செய்யப்படும் சிலம்பம், சண்டை திறமை மட்டுமல்லாமல், மன ஒழுக்கம், கவனம் மற்றும் மூதாதையர் பாரம்பரியங்களுக்கு மரியாதையையும் கற்பிக்கிறது.",
+                about_philosophy_title: "தத்துவம்",
+                about_philosophy_p1: "சிலம்பம் உடல் மற்றும் மனதின் இணக்கத்தை உள்ளடக்கியது. ஒவ்வொரு இயக்கமும் சமநிலை, திரவத்தன்மை மற்றும் சக்தியை பிரதிபலிக்கிறது. எங்கள் போதனைகள் மரியாதை, விடாமுயற்சி மற்றும் தனிப்பட்ட வளர்ச்சியை வலியுறுத்துகின்றன.",
+                carousel_title: "செயலில் சிலம்பம்",
+                carousel_1_title: "பாரம்பரிய நுட்பங்கள்",
+                carousel_1_desc: "மூதாதையர் தடியின் தேர்ச்சி",
+                carousel_2_title: "தீவிர பயிற்சி",
+                carousel_2_desc: "வலிமை மற்றும் சுறுசுறுப்பை வளர்க்கவும்",
+                carousel_3_title: "நிரூபணங்கள்",
+                carousel_3_desc: "இயக்கத்தில் கலை",
+                carousel_4_title: "வாழும் பாரம்பரியங்கள்",
+                carousel_4_desc: "5000 ஆண்டுகள் வரலாறு",
+                classes_title: "எங்கள் வகுப்புகள்",
+                class_beginner_title: "ஆரம்ப வகுப்பு",
+                class_beginner_time: "சனிக்கிழமை 14:00 - 15:00",
+                class_beginner_desc: "சிலம்பத்தின் அடிப்படைகளைக் கண்டறியுங்கள். அடிப்படை நிலைகள், தடி இயக்கங்கள் மற்றும் இந்த தற்காப்புக் கலையின் அத்தியாவசிய கொள்கைகளைக் கற்றுக்கொள்ளுங்கள்.",
+                class_advanced_title: "மேம்பட்ட வகுப்பு",
+                class_advanced_time: "சனிக்கிழமை 15:00 - 16:00",
+                class_advanced_desc: "சிக்கலான வரிசைகள், உருவகப் போர் மற்றும் மேம்பட்ட பாரம்பரிய கதைகளுடன் உங்கள் நுட்பங்களை முழுமையாக்குங்கள்.",
+                class_private_title: "தனிப்பட்ட பாடம்",
+                class_private_time: "ஞாயிறு - சந்திப்பின் மூலம்",
+                class_private_desc: "உங்கள் நிலை மற்றும் இலக்குகளுக்கு ஏற்றவாறு தனிப்பயனாக்கப்பட்ட கற்பித்தலால் பயனடையுங்கள்.",
+                class_kata_title: "மேம்பட்ட பாரம்பரிய கதா",
+                class_kata_time: "ஞாயிறு - 8 பாடங்கள்",
+                class_kata_desc: "மேம்பட்ட பாரம்பரிய சிலம்ப கதைகளை தேர்ச்சி பெற 8 அமர்வுகள் தீவிர திட்டம்.",
+                price_annual: "வருடாந்திர கட்டணம்: €167 / வருடம் வழக்கமான வகுப்புகளுக்கு",
+                instructors_title: "எங்கள் குருக்கள்",
+                instructor_1_name: "குரு குமார் செல்வம்",
+                instructor_1_title: "முதன்மை பயிற்றுவிப்பாளர் - 25 ஆண்டுகள் அனுபவம்",
+                instructor_1_bio: "குரு குமார் செல்வம் தமிழ்நாட்டில் 7 வயதில் தனது சிலம்ப பயிற்சியைத் தொடங்கினார். 25 ஆண்டுகள் தீவிர பயிற்சிக்குப் பிறகு, தனது அறிவைப் பகிர்ந்துகொள்ளவும் இந்த மூதாதையர் பாரம்பரியத்தை நிலைநிறுத்தவும் முடிவு செய்தார். பல தேசிய சாம்பியன்ஷிப் பட்டங்களை வைத்திருப்பவர், அவர் ஆர்வத்துடனும் அர்ப்பணிப்புடனும் கற்பிக்கிறார்.",
+                instructor_1_testimonial: "\"குரு குமார் எனக்கு போர் நுட்பங்களை விட அதிகமாக கற்பித்தார். மரியாதை, ஒழுக்கம் மற்றும் விடாமுயற்சியை அடிப்படையாகக் கொண்ட வாழ்க்கை தத்துவத்தை எனக்கு அனுப்பினார்.\" - மேரி, 3 ஆண்டுகளாக மாணவி",
+                gallery_title: "படத்தொகுப்பு",
+                contact_title: "எங்களை தொடர்பு கொள்ளுங்கள்",
+                contact_address_title: "முகவரி",
+                contact_address: "123 பாரம்பரிய தெரு<br>67000 ஸ்ட்ராஸ்பர்க், பிரான்ஸ்",
+                contact_phone_title: "தொலைபேசி",
+                contact_email_title: "மின்னஞ்சல்",
+                contact_hours_title: "நேரங்கள்",
+                contact_hours: "சனிக்கிழமை: 14:00 - 16:00<br>ஞாயிறு: சந்திப்பின் மூலம்",
+                form_name: "பெயர்",
+                form_email: "மின்னஞ்சல்",
+                form_message: "செய்தி",
+                form_submit: "அனுப்பு",
+                footer_privacy: "தனியுரிமை கொள்கை",
+                footer_terms: "பயன்பாட்டு விதிமுறைகள்",
+                footer_copyright: "© 2026 சிலம்பம் ஸ்ட்ராஸ்பர்க். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+            }
+        };
+
+        // Language Switcher
+        let currentLang = 'fr';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                updateLanguage(lang);
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', nextSlide);
+        document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 5000);
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert(currentLang === 'fr' ? 'Merci pour votre message! Nous vous répondrons bientôt.' :
+                  currentLang === 'en' ? 'Thank you for your message! We will respond soon.' :
+                  currentLang === 'pt' ? 'Obrigado pela sua mensagem! Responderemos em breve.' :
+                  'உங்கள் செய்திக்கு நன்றி! நாங்கள் விரைவில் பதிலளிப்போம்.');
+            e.target.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for fade-in animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
