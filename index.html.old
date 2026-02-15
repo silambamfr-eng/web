@@ -518,12 +518,13 @@
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             border: 2px solid var(--accent-light);
             border-radius: 50%;
-            color: white;
+            color: var(--primary);
             cursor: pointer;
             font-size: 1.2rem;
             font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            /* UX: Ensure touch target size */
             min-width: 50px;
             min-height: 50px;
         }
@@ -606,7 +607,7 @@
         .age-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent-light), var(--accent));
-            color: white;
+            color: var(--primary);
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -799,7 +800,7 @@
             gap: 0.5rem;
             padding: 0.6rem 1.2rem;
             background: linear-gradient(135deg, var(--accent-light), var(--accent));
-            color: white;
+            color: var(--primary);
             text-decoration: none;
             border-radius: 6px;
             font-size: 0.9rem;
@@ -992,7 +993,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--primary);
             font-size: 1.5rem;
             flex-shrink: 0;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
@@ -1060,7 +1061,7 @@
         .submit-btn {
             padding: 1.2rem 2rem;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: white;
+            color: var(--primary);
             border: 2px solid var(--accent);
             border-radius: 8px;
             font-family: 'Oswald', sans-serif;
@@ -1073,6 +1074,7 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
             position: relative;
             overflow: hidden;
+            /* UX: Ensure minimum touch target */
             min-height: 50px;
         }
 
@@ -1833,8 +1835,7 @@
         </div>
     </footer>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Translations
         const translations = {
             fr: {
@@ -2040,7 +2041,6 @@
                 nav_about: "Sobre",
                 nav_classes: "Aulas",
                 nav_instructors: "Instrutores",
-                nav_rotations: "Rotações",
                 nav_gallery: "Galeria",
                 nav_contact: "Contato",
                 hero_subtitle: "Arte Marcial Ancestral de Tamil Nadu",
@@ -2101,20 +2101,13 @@
                 form_submit: "Enviar",
                 footer_privacy: "Política de Privacidade",
                 footer_terms: "Termos de Uso",
-                footer_copyright: "© 2026 Silambam Strasbourg. Todos os direitos reservados.",
-                rotations_title: "As 16 Rotações Básicas",
-                rotations_intro: "Uma aula geralmente consiste num aquecimento geral, na aprendizagem das 16 rotações básicas durante os primeiros 3 meses e numa saudação. Depois o trabalho a sério começa com exercícios de movimentos dinâmicos e memorização de sequências. O cardio aumenta ao longo dos treinos para combinar velocidade e coordenação em preparação para o combate.",
-                rotations_age: "Idade: a partir de 8 anos",
-                rotations_number: "N°",
-                rotations_name: "Nome Tamil",
-                rotations_video: "Ver vídeo"
+                footer_copyright: "© 2026 Silambam Strasbourg. Todos os direitos reservados."
             },
             ta: {
                 nav_home: "முகப்பு",
                 nav_about: "எங்களை பற்றி",
                 nav_classes: "வகுப்புகள்",
                 nav_instructors: "பயிற்றுவிப்பாளர்கள்",
-                nav_rotations: "சுழற்சிகள்",
                 nav_gallery: "படத்தொகுப்பு",
                 nav_contact: "தொடர்பு",
                 hero_subtitle: "தமிழ்நாட்டின் பண்டைய தற்காப்புக் கலை",
@@ -2175,13 +2168,7 @@
                 form_submit: "அனுப்பு",
                 footer_privacy: "தனியுரிமை கொள்கை",
                 footer_terms: "பயன்பாட்டு விதிமுறைகள்",
-                footer_copyright: "© 2026 சிலம்பம் ஸ்ட்ராஸ்பர்க். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
-                rotations_title: "16 அடிப்படை சுழற்சிகள்",
-                rotations_intro: "ஒரு வகுப்பு பொதுவாக பொது வெப்பமாக்கல், முதல் 3 மாதங்களில் 16 அடிப்படை சுழற்சிகளைக் கற்றல் மற்றும் வணக்கம் ஆகியவற்றை மையமாகக் கொண்டது. பின்னர் மாறும் இயக்க பயிற்சிகள் மற்றும் வரிசை மனனத்துடன் தீவிர பயிற்சி தொடங்குகிறது.",
-                rotations_age: "வயது: 8 வயது முதல்",
-                rotations_number: "எண்",
-                rotations_name: "தமிழ் பெயர்",
-                rotations_video: "வீடியோ பார்"
+                footer_copyright: "© 2026 சிலம்பம் ஸ்ட்ராஸ்பர்க். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
             }
         };
 
@@ -2307,13 +2294,4 @@
 
         // Observe all sections for fade-in animation
         document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-
-    }); // end DOMContentLoaded
-    </script>
-</body>
-</html>
+            section
