@@ -1163,12 +1163,13 @@
             overflow: hidden;
             cursor: pointer;
             background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 50%, var(--accent-dark) 100%);
+            background-position: 50% 20%;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
             box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
         }
 
@@ -1741,7 +1742,7 @@
         <h2 class="section-title" data-translate="classes_title">Nos Cours</h2>
         <div class="classes-grid">
             <div class="class-card">
-                <span class="age-badge" data-translate="age_kids">6-12 ans</span>
+                <span class="age-badge" data-translate="age_kids">A partir de 8 ans</span>
                 <h3 data-translate="class_beginner_title">Cours Débutant</h3>
                 <p class="class-time" data-translate="class_beginner_time">Samedi 14h - 15h</p>
                 <p data-translate="class_beginner_desc">
@@ -1755,7 +1756,7 @@
                 </ul>
             </div>
             <div class="class-card">
-                <span class="age-badge" data-translate="age_teens">13+ ans</span>
+                <span class="age-badge" data-translate="age_teens">A partir de 8 ans</span>
                 <h3 data-translate="class_advanced_title">Cours Avancé</h3>
                 <p class="class-time" data-translate="class_advanced_time">Samedi 15h - 16h</p>
                 <p data-translate="class_advanced_desc">
@@ -1915,7 +1916,7 @@
                     </tr>
                     <tr>
                         <td class="rotation-number">4</td>
-                        <td class="rotation-name">Maatru Thalai Sutru</td>
+                        <td class="rotation-name">Maatru Thalai Vettu>
                         <td><a href="https://www.youtube.com/watch?v=2E5YlQC-Sxg" target="_blank" class="rotation-video-link">▶️ <span data-translate="rotations_video">Voir</span></a></td>
                     </tr>
                     <tr>
@@ -1987,13 +1988,13 @@
     <section class="gallery" id="gallery">
         <h2 class="section-title" data-translate="gallery_title">Galerie</h2>
         <div class="gallery-grid">
-            <div class="gallery-item" style="background-image: url('images/master_silambam_duo.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('images/master_silambam_solo_horn.jpg');"></div>
-            <div class="gallery-item" style="background-image: url('images/silambam_histoire.png');"></div>
-            <div class="gallery-item" style="background-image: url('images/silambam_histoire2.png');"></div>
+            <div class="gallery-item" style="background-image: url('images/silambam_fille.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/silambam_instructeur.jpg');"></div>
             <div class="gallery-item" style="background-image: url('images/silambam_kids.jpg');"></div>
             <div class="gallery-item" style="background-image: url('images/silambam_kid_solo.jpg');"></div>
             <div class="gallery-item" style="background-image: url('images/mamallam_team_master.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/master_silambam_duo.jpg');"></div>
+            <div class="gallery-item" style="background-image: url('images/master_silambam_solo_horn.jpg');"></div>
         </div>
     </section>
 
@@ -2007,13 +2008,24 @@
                     <div class="info-text">
                         <h4 data-translate="contact_address_title">Lieu des cours</h4>
                         <p data-translate="contact_address">Les Casemates - Salle Dojo<br>64 Prom. du Verger<br>92130 Issy-les-Moulineaux</p>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2627.143354611014!2d2.263779777303742!3d48.81732617132646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67b48c73a172b%3A0xdd265b9f0f95d4cd!2sSilambam%20France!5e0!3m2!1sfr!2sfr!4v1771455455558!5m2!1sfr!2sfr"
+                            width="100%"
+                            height="250"
+                            style="border:0; border-radius:8px; margin-top:1rem;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Salle Dojo Les Casemates, Issy-les-Moulineaux">
+                        </iframe>
                     </div>
                 </div>
                 <div class="info-item">
                     <div class="info-icon">📞</div>
                     <div class="info-text">
                         <h4 data-translate="contact_phone_title">Contact</h4>
-                        <p data-translate="contact_phone">Maître Pajanivel: +91 900 396 2155 / +91 944 395 7090</p>
+                        <p data-translate="contact_phone">Maître Pajanivel (Inde): <a href="tel:+91 900 396 2155 / +91 944 395 7090">+91 900 396 2155 / +91 944 395 7090</a></p>
+                        <p data-translate="contact_phone">Instructeur Alex (France): Utilisez le formulaire de contact</p>
                     </div>
                 </div>
                 <div class="info-item">
@@ -2031,7 +2043,7 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgolzpln" method="POST">
                 <div class="form-group">
                     <label for="name" data-translate="form_name">Nom</label>
                     <input type="text" id="name" required>
@@ -2060,9 +2072,8 @@
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="#" aria-label="Facebook">f</a>
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="YouTube">▶</a>
+                <a href="https://www.instagram.com/nonstopalex.bostaff/" aria-label="Instagram">📷</a>
+                <a href="https://www.youtube.com/@SilambamFrance" aria-label="YouTube">▶</a>
             </div>
             <div class="footer-links">
                 <a href="#" data-translate="footer_privacy">Politique de Confidentialité</a>
@@ -2173,7 +2184,7 @@
                 form_submit: "Envoyer",
                 footer_privacy: "Politique de Confidentialité",
                 footer_terms: "Conditions d'Utilisation",
-                footer_copyright: "© 2026 Silambam Strasbourg. Tous droits réservés."
+                footer_copyright: "© 2026 CSLG Prisma. Tous droits réservés"
             },
             en: {
                 nav_home: "Home",
@@ -2272,7 +2283,7 @@
                 form_submit: "Send",
                 footer_privacy: "Privacy Policy",
                 footer_terms: "Terms of Use",
-                footer_copyright: "© 2026 Silambam Strasbourg. All rights reserved."
+                footer_copyright: "© 2026 CSLG Prisma. All rights reserved."
             },
             pt: {
                 nav_home: "Início",
@@ -2340,7 +2351,7 @@
                 form_submit: "Enviar",
                 footer_privacy: "Política de Privacidade",
                 footer_terms: "Termos de Uso",
-                footer_copyright: "© 2026 Silambam Strasbourg. Todos os direitos reservados.",
+                footer_copyright: "© 2026 CSLG Prisma. Todos os direitos reservados.",
                 rotations_title: "As 16 Rotações Básicas",
                 rotations_intro: "Uma aula geralmente consiste num aquecimento geral, na aprendizagem das 16 rotações básicas durante os primeiros 3 meses e numa saudação. Depois o trabalho a sério começa com exercícios de movimentos dinâmicos e memorização de sequências. O cardio aumenta ao longo dos treinos para combinar velocidade e coordenação em preparação para o combate.",
                 rotations_age: "Idade: a partir de 8 anos",
@@ -2414,7 +2425,7 @@
                 form_submit: "அனுப்பு",
                 footer_privacy: "தனியுரிமை கொள்கை",
                 footer_terms: "பயன்பாட்டு விதிமுறைகள்",
-                footer_copyright: "© 2026 சிலம்பம் ஸ்ட்ராஸ்பர்க். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+                footer_copyright: "© 2026 CSLG prisma. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
                 rotations_title: "16 அடிப்படை சுழற்சிகள்",
                 rotations_intro: "ஒரு வகுப்பு பொதுவாக பொது வெப்பமாக்கல், முதல் 3 மாதங்களில் 16 அடிப்படை சுழற்சிகளைக் கற்றல் மற்றும் வணக்கம் ஆகியவற்றை மையமாகக் கொண்டது. பின்னர் மாறும் இயக்க பயிற்சிகள் மற்றும் வரிசை மனனத்துடன் தீவிர பயிற்சி தொடங்குகிறது.",
                 rotations_age: "வயது: 8 வயது முதல்",
@@ -2520,14 +2531,104 @@
         setInterval(nextSlide, 5000);
 
         // Form submission
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
+       
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert(currentLang === 'fr' ? 'Merci pour votre message! Nous vous répondrons bientôt.' :
-                  currentLang === 'en' ? 'Thank you for your message! We will respond soon.' :
-                  currentLang === 'pt' ? 'Obrigado pela sua mensagem! Responderemos em breve.' :
-                  'உங்கள் செய்திக்கு நன்றி! நாங்கள் விரைவில் பதிலளிப்போம்.');
-            e.target.reset();
+
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+
+            // État de chargement
+            submitBtn.textContent = '⏳ Envoi en cours...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // ✅ Succès
+                    submitBtn.textContent = '✅ Message envoyé !';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    submitBtn.style.opacity = '1';
+                    form.reset();
+
+                    // Message de confirmation visible
+                    showFormMessage('success', currentLang);
+
+                    // Remettre le bouton à la normale après 4s
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = '';
+                        submitBtn.disabled = false;
+                    }, 4000);
+
+                } else {
+                    throw new Error('Erreur serveur');
+                }
+
+            } catch (error) {
+                // ❌ Erreur
+                submitBtn.textContent = '❌ Erreur - Réessayez';
+                submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                submitBtn.style.opacity = '1';
+
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 4000);
+            }
         });
+
+        // Fonction d'affichage du message de confirmation
+        function showFormMessage(type, lang) {
+            // Supprimer ancien message s'il existe
+            const existing = document.getElementById('formMessage');
+            if (existing) existing.remove();
+
+            const messages = {
+                success: {
+                    fr: '🎉 Merci ! Votre message a bien été envoyé. Nous vous répondrons très bientôt.',
+                    en: '🎉 Thank you! Your message has been sent. We will reply soon.',
+                    pt: '🎉 Obrigado! Sua mensagem foi enviada. Responderemos em breve.',
+                    ta: '🎉 நன்றி! உங்கள் செய்தி அனுப்பப்பட்டது. விரைவில் பதிலளிப்போம்.'
+                }
+            };
+
+            const msg = document.createElement('div');
+            msg.id = 'formMessage';
+            msg.style.cssText = `
+                padding: 1.2rem 1.5rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+                font-weight: 600;
+                font-size: 1rem;
+                background: rgba(16, 185, 129, 0.1);
+                border: 2px solid #10b981;
+                color: #065f46;
+                animation: fadeInUp 0.4s ease;
+                text-align: center;
+            `;
+            msg.textContent = messages[type][lang] || messages[type]['fr'];
+
+            form.appendChild(msg);
+
+            // Disparaît après 6s
+            setTimeout(() => {
+                msg.style.opacity = '0';
+                msg.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => msg.remove(), 500);
+            }, 6000);
+        }
 
         // Intersection Observer for animations
         const observerOptions = {
@@ -2550,6 +2651,82 @@
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
+        });
+
+         // Gallery Lightbox (image popup on click)
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        // Create lightbox overlay
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 28, 46, 0.95);
+            z-index: 9999;
+            cursor: zoom-out;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        `;
+        
+        const lightboxImg = document.createElement('img');
+        lightboxImg.style.cssText = `
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        `;
+        
+        lightbox.appendChild(lightboxImg);
+        document.body.appendChild(lightbox);
+        
+        // Add zoom animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes zoomIn {
+                from {
+                    transform: scale(0.8);
+                    opacity: 0;
+                }
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Open lightbox on gallery item click
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const bgImage = this.style.backgroundImage;
+                const imageUrl = bgImage.slice(5, -2); // Extract URL from url("...")
+                
+                lightboxImg.src = imageUrl;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+        
+        // Close lightbox on click
+        lightbox.addEventListener('click', function() {
+            this.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+        
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
 
     }); // end DOMContentLoaded
