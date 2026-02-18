@@ -117,7 +117,7 @@
             "@type": "Offer",
             "name": "Cours Débutant — Samedi 14h-15h",
             "description": "Initiation au Silambam, dès 8 ans. Apprentissage des 16 rotations basiques.",
-            "price": "167",
+            "price": "169",
             "priceCurrency": "EUR",
             "eligibleQuantity": {"@type": "QuantitativeValue", "unitText": "an"}
           },
@@ -125,7 +125,7 @@
             "@type": "Offer",
             "name": "Cours Avancé — Samedi 15h-16h",
             "description": "Techniques avancées, katas traditionnels et combats simulés.",
-            "price": "167",
+            "price": "169",
             "priceCurrency": "EUR",
             "eligibleQuantity": {"@type": "QuantitativeValue", "unitText": "an"}
           },
@@ -195,7 +195,7 @@
           "name": "Quel est le tarif des cours de Silambam ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le tarif annuel est de 167€ par an pour les cours réguliers (soit environ 14€/mois). Des cours particuliers sont disponibles le dimanche à partir de 15€/heure. Le premier cours d'essai est gratuit et sans engagement."
+            "text": "Le tarif annuel est de 169€ par an pour les cours réguliers (soit environ 14€/mois). Des cours particuliers sont disponibles le dimanche à partir de 15€/heure. Le premier cours d'essai est gratuit et sans engagement."
           }
         },
         {
@@ -448,11 +448,12 @@
                 linear-gradient(135deg, 
                     var(--primary) 0%, 
                     var(--primary-light) 40%,
-                    rgba(37, 99, 235, 0.3) 70%, 
-                    rgba(59, 130, 246, 0.4) 100%
+                    rgba(37, 99, 235, 0.3) 60%, 
+                    rgba(59, 130, 246, 0.4) 90%                    
                 ),
                 radial-gradient(circle at 75% 25%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 25% 75%, rgba(29, 78, 216, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 25% 75%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
+                url('images/silambam_team.jpg') center/cover no-repeat;
             animation: float 20s ease-in-out infinite;
         }
 
@@ -663,7 +664,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(212, 165, 116, 0.2), transparent);
+            background: linear-gradient(45deg, rgba(212, 165, 116, 0.2), transparent),
+            url('images/bostaff_sticks.jpg') center/cover no-repeat;
             z-index: 1;
         }
 
@@ -690,10 +692,20 @@
             transition: opacity 1s ease-in-out;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         .carousel-slide.active {
             opacity: 1;
+        }
+
+        /* Gradient overlay par-dessus l'image */
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15,28,46,0.75) 0%, rgba(37,99,235,0.45) 100%);
+            z-index: 1;
         }
 
         .carousel-slide::after {
@@ -703,7 +715,8 @@
             left: 0;
             width: 100%;
             height: 50%;
-            background: linear-gradient(to top, rgba(26, 15, 10, 0.7), transparent);
+            background: linear-gradient(to top, rgba(15, 28, 46, 0.8), transparent);
+            z-index: 2;
         }
 
         .carousel-caption {
@@ -1651,7 +1664,7 @@
                 </p>
             </div>
             <div class="about-image loading">
-                <!-- Placeholder for image -->
+                
             </div>
         </div>
     </section>
@@ -1661,25 +1674,25 @@
         <h2 class="section-title" data-translate="carousel_title">Silambam en Action</h2>
         <div class="carousel-container">
             <div class="carousel">
-                <div class="carousel-slide active" style="background: linear-gradient(135deg, #2563eb 0%, #0F1C2E 60%, #1d4ed8 100%);">
+                <div class="carousel-slide active" style="background-image: url('images/bo_contrejour.jpeg');">
                     <div class="carousel-caption">
                         <h3 data-translate="carousel_1_title">Techniques Traditionnelles</h3>
                         <p data-translate="carousel_1_desc">Maîtrise du bâton ancestral</p>
                     </div>
                 </div>
-                <div class="carousel-slide" style="background: linear-gradient(135deg, #0F1C2E 0%, #1d4ed8 40%, #3b82f6 100%);">
+                <div class="carousel-slide" style="background-image: url('images/silambam_group.jpg');">
                     <div class="carousel-caption">
                         <h3 data-translate="carousel_2_title">Entraînement Intensif</h3>
                         <p data-translate="carousel_2_desc">Développez force et agilité</p>
                     </div>
                 </div>
-                <div class="carousel-slide" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #0F1C2E 100%);">
+                <div class="carousel-slide" style="background-image: url('images/silambam_ring.jpg');">
                     <div class="carousel-caption">
                         <h3 data-translate="carousel_3_title">Démonstrations</h3>
                         <p data-translate="carousel_3_desc">L'art en mouvement</p>
                     </div>
                 </div>
-                <div class="carousel-slide" style="background: linear-gradient(135deg, #0F1C2E 20%, #2563eb 80%);">
+                <div class="carousel-slide" style="background-image: url('images/silambam_rubbon.jpg');">
                     <div class="carousel-caption">
                         <h3 data-translate="carousel_4_title">Traditions Vivantes</h3>
                         <p data-translate="carousel_4_desc">5000 ans d'histoire</p>
@@ -1716,7 +1729,7 @@
                 <div class="why-item">
                     <div class="why-icon">👨‍👩‍👧‍👦</div>
                     <h4 data-translate="why_4_title">Groupe Multiculturel</h4>
-                    <p data-translate="why_4_desc">Un mélange d'élèves français et tamouls dans une ambiance conviviale et respectueuse.</p>
+                    <p data-translate="why_4_desc">Un mélange d'élèves d'horizon différents dans une ambiance conviviale et respectueuse.</p>
                 </div>
             </div>
         </div>
@@ -1776,7 +1789,7 @@
             </div>
         </div>
         <div class="price-note">
-            <p data-translate="price_annual"><strong>Tarif Annuel:</strong> 167€ / an pour les cours réguliers (soit environ 14€/mois)</p>
+            <p data-translate="price_annual"><strong>Tarif Annuel:</strong> 169€ / an pour les cours réguliers (soit environ 14€/mois)</p>
             <p data-translate="trial_info" style="margin-top: 1rem; font-weight: 600; color: var(--accent);">🎁 Premier cours d'essai GRATUIT - Venez découvrir sans engagement !</p>
         </div>
     </section>
@@ -1787,10 +1800,10 @@
         
         <!-- Alex - Local Instructor -->
         <div class="instructor-card">
-            <div class="instructor-image loading"></div>
+            <div class="instructor-image" style="background-image: url('images/portait_alex.jpg');"></div>
             <div class="instructor-info">
                 <h3 data-translate="instructor_1_name">Alex</h3>
-                <p class="instructor-title" data-translate="instructor_1_title">Instructeur - Élève de Maître Pajanivel</p>
+                <p class="instructor-title" data-translate="instructor_1_title">Instructeur - Élève de Maître Pajanivel (Veran)</p>
                 <p class="instructor-bio" data-translate="instructor_1_bio">
                     Alex enseigne le Silambam depuis 2023 sous la direction de Maître Pajanivel (groupe Mamallam Silambam). 
                     Ceinture noire 2ème dan de Karaté Contact et Diplôme d'Assistance Fédéral depuis 2021 (élève de Rafael Chia Amor), 
@@ -1813,7 +1826,7 @@
 
         <!-- Master Pajanivel -->
         <div class="instructor-card">
-            <div class="instructor-image loading"></div>
+            <div class="instructor-image" style="background-image: url('images/master_silambam_solo.jpg');"></div>
             <div class="instructor-info">
                 <h3 data-translate="instructor_2_name">Maître Pajanivel</h3>
                 <p class="instructor-title" data-translate="instructor_2_title">Maître de Silambam - 40 ans d'expérience</p>
@@ -1826,10 +1839,10 @@
                     du monde entier.
                 </p>
                 <div class="social-links-instructor">
-                    <a href="https://theindianblog.in/k-pajanivel-guardian-of-silambam-a-traditional-martial-arts-legend/" target="_blank" rel="noopener" class="social-link">
+                    <a href="https://indianblog.co.in/k-pajanivel-guardian-of-silambam-a-traditional-martial-arts-legend/" target="_blank" rel="noopener" class="social-link">
                         📖 <span data-translate="instructor_2_link">En savoir plus sur Maître Pajanivel</span>
                     </a>
-                    <a href="https://www.youtube.com/@MamallanSilambamOfficialPu" target="_blank" rel="noopener" class="social-link">
+                    <a href="https://www.youtube.com/@mamallansilambamofficialpu658" target="_blank" rel="noopener" class="social-link">
                         ▶️ École Mamallam Silambam
                     </a>
                     <a href="https://maps.app.goo.gl/5sPv1gE7WZmEvSWn6" target="_blank" rel="noopener" class="social-link">
@@ -1973,12 +1986,12 @@
     <section class="gallery" id="gallery">
         <h2 class="section-title" data-translate="gallery_title">Galerie</h2>
         <div class="gallery-grid">
-            <div class="gallery-item loading"></div>
-            <div class="gallery-item loading"></div>
-            <div class="gallery-item loading"></div>
-            <div class="gallery-item loading"></div>
-            <div class="gallery-item loading"></div>
-            <div class="gallery-item loading"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
+            <div class="gallery-item"></div>
         </div>
     </section>
 
@@ -2122,7 +2135,7 @@
                 class_kata_title: "Kata Avancé Traditionnel",
                 class_kata_time: "Dimanche - 8 leçons",
                 class_kata_desc: "Stage intensif pour maîtriser les formes traditionnelles du Silambam. Approfondissement technique et culturel.",
-                price_annual: "Tarif Annuel: 167€ / an pour les cours réguliers (soit environ 14€/mois)",
+                price_annual: "Tarif Annuel: 169€ / an pour les cours réguliers (soit environ 14€/mois)",
                 trial_info: "🎁 Premier cours d'essai GRATUIT - Venez découvrir sans engagement !",
                 instructors_title: "Nos Maîtres",
                 instructor_1_name: "Alex",
@@ -2221,7 +2234,7 @@
                 class_kata_title: "Advanced Traditional Kata",
                 class_kata_time: "Sunday - 8 lessons",
                 class_kata_desc: "Intensive course to master traditional Silambam forms. Technical and cultural deepening.",
-                price_annual: "Annual Fee: €167 / year for regular classes (about €14/month)",
+                price_annual: "Annual Fee: €169 / year for regular classes (about €14/month)",
                 trial_info: "🎁 First trial class FREE - Come discover with no commitment!",
                 instructors_title: "Our Masters",
                 instructor_1_name: "Alex",
@@ -2298,7 +2311,7 @@
                 class_kata_title: "Kata Tradicional Avançado",
                 class_kata_time: "Domingo - 8 lições",
                 class_kata_desc: "Programa intensivo de 8 sessões para dominar katas tradicionais avançados de Silambam.",
-                price_annual: "Taxa Anual: €167 / ano para aulas regulares",
+                price_annual: "Taxa Anual: €169 / ano para aulas regulares",
                 instructors_title: "Nossos Mestres",
                 instructor_1_name: "Alex",
                 instructor_1_title: "Instrutor - Aluno do Mestre Pajanivel",
@@ -2372,7 +2385,7 @@
                 class_kata_title: "மேம்பட்ட பாரம்பரிய கதா",
                 class_kata_time: "ஞாயிறு - 8 பாடங்கள்",
                 class_kata_desc: "மேம்பட்ட பாரம்பரிய சிலம்ப கதைகளை தேர்ச்சி பெற 8 அமர்வுகள் தீவிர திட்டம்.",
-                price_annual: "வருடாந்திர கட்டணம்: €167 / வருடம் வழக்கமான வகுப்புகளுக்கு",
+                price_annual: "வருடாந்திர கட்டணம்: €169 / வருடம் வழக்கமான வகுப்புகளுக்கு",
                 instructors_title: "எங்கள் குருக்கள்",
                 instructor_1_name: "அலெக்ஸ்",
                 instructor_1_title: "பயிற்றுவிப்பாளர் - குரு பஜனிவேல் மாணவர்",
